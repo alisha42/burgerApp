@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+
+    <!--start left panel-->
+    <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
+      <div class="section-left">
+
+        <div class="sidebox">
+            <div class="title">Category</div>
+            <div class="side-widget">
+              <ul class="nav" role="tablist">
+                <div *ngFor="let item of foodCategory">
+                  <li role="presentation">
+                    <button (click)="onFilterChange(item,'category')" 
+                    [ngClass]="{'active':selectedType==item}"
+                    style="background-color:transparent;color:black">
+                      {{item}}
+                    </button>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+
+        <div class="sidebox">
+          <div class="title">Price(in Rs.)</div>
+          <div class="side-widget">
+            <ul class="nav" role="tablist">
+              <div *ngFor="let price of priceRange">
+                <li role="presentation">
+                  <button (click)="onFilterChange(price,'price')" 
+                  [ngClass]="{'active':selectedType==price}"
+                  style="background-color:transparent;color:black">
+                    {{price}}
+                  </button>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebox">
+          <div class="title">Ratings</div>
+          <div class="side-widget">
+            <ul class="nav" role="tablist">
+              <div *ngFor="let rating of ratings">
+                <li role="presentation">
+                  <button (click)="onFilterChange(rating,'rating')" 
+                  [ngClass]="{'active':selectedType==rating}"
+                  style="background-color:transparent;color:black">
+                    {{rating}} star
+                  </button>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--end left panel-->
+
+
+
+    <!--start right panel-->
+    <div class="col-lg-9 col-md-9 col-sm-8">
+      <div class="section-right">
+
+
+        <!--Product filter -->
+
+        <!-- end Product filter-->
+
+        <!-- start inner product Product -->
+        <div class="row category-box whitebg">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+
+            <div *ngFor="let item of burgerlist">
+              <div class="product-item">
+                <div class="product-thumb">
+                  <img src="./assets/images/product/11.jpg">
+                </div>
+                <div class="product-name">{{item.name}}</div>
+                <div class="content_price">
+                  <div class="product-price">{{item.discountedPrice}}</div>
+                  <div class="old-price">{{item.price}}</div>
+                </div>
+                <div class="btn btn-primary" title="Add to Cart" (click)="addItem(item)">
+                  +
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+        <!-- end inner product Product -->
+
+      </div>
+    </div>
+  </div>
+</div>

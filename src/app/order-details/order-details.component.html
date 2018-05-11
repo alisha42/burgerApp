@@ -1,0 +1,38 @@
+<div class="row category-box whitebg ">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="account-section">
+
+      <div class="title-page">My Order</div>
+      <div class="accc_orderbox" *ngIf=" orderlist.length===0"> You have placed no orders. </div>
+      <a href="#">« Back</a>
+
+      <!-- start order item-->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tbody>
+           <tr>
+              <th>item # </th>
+              <th>Date</th>
+              <th>Ship To</th>
+              <th>Order Total</th>
+              <th>Order Status</th>
+            </tr>
+            <tr *ngFor="let i of orderlist;index as in">
+              <td>{{in+1}}</td>
+              <td>11-may-2017</td>
+              <td>{{i.name}}</td>
+              <td>{{i.discountedPrice}}</td>
+              <td>
+                <em>Pending</em>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end order item-->
+
+    </div>
+    <input type="Button" value="Place Order" (click)="onSubmit()" />
+  </div>
+
+</div>
